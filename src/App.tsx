@@ -1,4 +1,4 @@
-import React from "react";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Pages/Root";
 import SignUp from "./Pages/SignUp";

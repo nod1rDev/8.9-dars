@@ -6,7 +6,6 @@ import {
   collection,
   getDocs,
   deleteDoc,
-  updateDoc,
   doc,
 } from "firebase/firestore";
 import { db } from "../firebase";

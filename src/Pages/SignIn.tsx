@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import {
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  getAuth,
-  signInWithPopup,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
-  const [loading, setLoading] = useState(false);
   const [time, setTime] = useState(true);
   const [correct, setCorrect] = useState(false);
   const [value, setValue] = useState({
@@ -23,10 +17,10 @@ function SignIn() {
     e.preventDefault();
 
     signInWithEmailAndPassword(auth, value.email, value.password)
-      .then((user) => {
+      .then(() => {
         setCorrect(true);
       })
-      .catch((erorr) => alert("Your data has mistake move to  SignUp"));
+      .catch(() => alert("Your data has mistake move to  SignUp"));
   };
   useEffect(() => {
     auth.authStateReady().finally(() => setTime(false));
@@ -36,16 +30,7 @@ function SignIn() {
       setTimeout(() => navigate("/libary"), 1200);
     }
   }, [correct]);
-  const provider = new GoogleAuthProvider();
-  const handleGoogle = () => {
-    const auth = getAuth();
-    signInWithPopup(auth, provider).then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      credential?.accessToken;
-      result.user;
-    });
-  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue({
       ...value,
@@ -80,10 +65,7 @@ function SignIn() {
             type="password"
           />
 
-          <button
-            disabled={loading}
-            className="bg-green-400 mb-4 disabled:bg-green-200 hover:bg-green-300 rounded-[10px] font-bold text-[20px] text-white w-full py-3"
-          >
+          <button className="bg-green-400 mb-4 disabled:bg-green-200 hover:bg-green-300 rounded-[10px] font-bold text-[20px] text-white w-full py-3">
             submit
           </button>
 
