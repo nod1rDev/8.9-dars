@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#my_modal_1::backdrop{
+  color: blue;
+}
