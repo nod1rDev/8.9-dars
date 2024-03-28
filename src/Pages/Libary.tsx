@@ -18,7 +18,7 @@ function Libary() {
   let count: number = 1;
 
   const addDocs = async (value1: string, value2: any) => {
-    const ref = await addDoc(collection(db, "libary"), {
+    await addDoc(collection(db, "libary"), {
       title: value1,
       published: value2,
     });
@@ -51,7 +51,7 @@ function Libary() {
   }, []);
 
   const delDocs = async (e: any) => {
-    const del = deleteDoc(doc(db, "libary", e));
+    deleteDoc(doc(db, "libary", e));
     getdata();
   };
 
