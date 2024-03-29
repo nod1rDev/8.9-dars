@@ -75,7 +75,7 @@ function SignIn() {
               onClick={() => navigate("/signUp")}
               className="text-gray-300 cursor-pointer"
             >
-              SignUp?
+              SignUp
             </span>
           </span>
         </form>
