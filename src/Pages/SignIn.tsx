@@ -66,7 +66,7 @@ function SignIn() {
           />
 
           <button className="bg-green-400 mb-4 disabled:bg-green-200 hover:bg-green-300 rounded-[10px] font-bold text-[20px] text-white w-full py-3">
-            submit
+            submt
           </button>
 
           <span className="text-[#33333]  font-[300] ">
